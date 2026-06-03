@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lettres">
+  <meta name="theme-color" content="#6C63FF">
+  <title>Jeu de Lettres</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- IDLE SCREEN -->
+<div id="screen-idle" class="screen active">
+  <div class="card">
+    <div class="app-icon">🔤</div>
+    <h1 id="title">Jeu de Lettres</h1>
+    <p class="subtitle" id="subtitle">
+      Nommez le plus d'éléments possible sur un thème, à partir d'une lettre tirée au sort !
+    </p>
+
+    <div class="settings">
+      <div class="setting-row">
+        <label id="lbl-langue">Langue</label>
+        <div class="toggle-group" id="langue-toggle">
+          <button class="toggle-btn active" data-value="fr">FR</button>
+          <button class="toggle-btn" data-value="en">EN</button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <label id="lbl-temps">Durée</label>
+        <div class="toggle-group" id="temps-toggle">
+          <button class="toggle-btn" data-value="30">30s</button>
+          <button class="toggle-btn active" data-value="60">60s</button>
+          <button class="toggle-btn" data-value="90">90s</button>
+          <button class="toggle-btn" data-value="0">∞</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="btn-play" class="btn-primary">Jouer !</button>
+  </div>
+</div>
+
+<!-- PLAYING SCREEN -->
+<div id="screen-playing" class="screen">
+  <div class="game-header">
+    <div class="letter-badge" id="letter-display">A</div>
+    <div class="theme-display" id="theme-display">animaux</div>
+  </div>
+
+  <div class="timer-area" id="timer-area">
+    <svg class="timer-ring" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#ffffff33" stroke-width="8"/>
+      <circle id="timer-arc" cx="50" cy="50" r="45" fill="none"
+              stroke="#fff" stroke-width="8" stroke-linecap="round"
+              stroke-dasharray="282.74" stroke-dashoffset="0"
+              transform="rotate(-90 50 50)"/>
+      <text x="50" y="57" text-anchor="middle" font-size="26"
+            font-weight="bold" fill="white" id="timer-text">60</text>
+    </svg>
+  </div>
+
+  <div class="answers-area">
+    <ul id="answers-list"></ul>
+  </div>
+
+  <div class="input-bar">
+    <input id="word-input" type="text" autocomplete="off" autocorrect="off"
+           autocapitalize="characters" spellcheck="false"
+           placeholder="Votre réponse…">
+    <button id="btn-add" aria-label="Ajouter">↵</button>
+    <button id="btn-done" class="btn-done">Terminé</button>
+  </div>
+</div>
+
+<!-- LOADING SCREEN -->
+<div id="screen-loading" class="screen">
+  <div class="card center">
+    <div class="spinner"></div>
+    <p id="loading-text">Chargement…</p>
+  </div>
+</div>
+
+<!-- RESULTS SCREEN -->
+<div id="screen-results" class="screen">
+  <div class="card results-card">
+    <h2 id="results-header">Résultats</h2>
+    <div id="results-body"></div>
+    <button id="btn-again" class="btn-primary">Rejouer</button>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

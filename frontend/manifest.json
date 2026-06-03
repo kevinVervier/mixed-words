@@ -1,0 +1,18 @@
+{
+  "name": "Jeu de Lettres",
+  "short_name": "Lettres",
+  "description": "Nommez le plus d'éléments sur un thème à partir d'une lettre tirée au sort",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#6C63FF",
+  "theme_color": "#6C63FF",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
